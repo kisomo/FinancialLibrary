@@ -7,19 +7,22 @@
 namespace FinLib{
 
 //Interpolate Func
-double CalcUtil::Interpolate(double target_term, double pre_term, double post_term, double pre_value, double post_value){
+double CalcUtil::Interpolate(double target_term, double pre_term, double post_term, double pre_value, double post_value)
+{
 	double target_value = 0;
 	target_value = pre_value + (post_value - pre_value) / (post_term - pre_term) * (target_term - pre_term);
 	return target_value;
 }
-double CalcUtil::Interpolate(int target_term, int pre_term, int post_term, double pre_value, double post_value){
+double CalcUtil::Interpolate(int target_term, int pre_term, int post_term, double pre_value, double post_value)
+{
 	double target_value = 0;
 	target_value = pre_value + (post_value - pre_value) / (post_term - pre_term) * (target_term - pre_term);
 	return target_value;
 }
 
 //InterpolateRange Func
-double CalcUtil::InterpolateRange(int target_term, const std::vector<int> &term, const std::vector<double> &value){
+double CalcUtil::InterpolateRange(int target_term, const std::vector<int> &term, const std::vector<double> &value)
+{
 	int i;
 	//if targetgrid is out of argument range, return extrapolated value
 	if(target_term <= term[0]){
@@ -37,7 +40,8 @@ double CalcUtil::InterpolateRange(int target_term, const std::vector<int> &term,
 }
 
 //CalcForwardRate Func
-double CalcUtil::CalcForwardRate(double startTermZR, int startTerm, double endTermZR, int endTerm){
+double CalcUtil::CalcForwardRate(double startTermZR, int startTerm, double endTermZR, int endTerm)
+{
 	double forwardRate = ((endTermZR * endTerm) - (startTermZR * startTerm)) / (endTerm - startTerm);
 	return forwardRate;
 }
@@ -82,7 +86,8 @@ double CalcUtil::CalcDiscountFactor(
 }
 
 //Calc probability density function
-double CalcUtil::CalcNormDistProbability(double x, double average, double variance){
+double CalcUtil::CalcNormDistProbability(double x, double average, double variance)
+{
 	x = (x - average) / std::sqrt(2 * variance);
 	double probability = std::erf(std::fabs(x)) / 2.0;
 	if(x < 0){

@@ -13,10 +13,7 @@ private:
 
 	std::string strDate;	//yyyymmdd format
 	int julianDay;
-	
 	void AdjustHolidays(std::vector<int> &date, std::string holiday_adjustment);
-
-
 
 public:
 
